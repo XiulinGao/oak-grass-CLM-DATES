@@ -188,7 +188,7 @@ nc_vlist$mask2   = ncvar_def( name      = "mod_lnd_props"
 att_template = list(   title          = "To be replaced when looping through months"
                      , date_created   = paste0(as.character(now(tzone="UTC")), "UTC")
                      , source_code    = "mask-wrf-domain.R"
-                     , code_notes     = "land mask for WRF domain created using NLCD herb cover >=80"
+                     , code_notes     = "land mask for WRF domain created using ACE DS2723 dataset (oak woodland) and NLCD data (herb cover > 80%)"
                      , code_developer = paste0( author_name
                                                 ," <"
                                                 , author_email
@@ -204,7 +204,7 @@ dummy = ncvar_put(nc=nc_new, varid ="landmask",vals=land_mask)
 dummy = ncvar_put(nc=nc_new, varid ="mod_lnd_props",vals=land_mkdif)
 
 
-nc_title   = "Land mask for annual grassland and oakwoodland on WRF domain"
+nc_title   = "Land mask for California annual grassland and oakwoodland on WRF domain"
 att_global = modifyList( x = att_template, val = list( title = nc_title ))
 
 
